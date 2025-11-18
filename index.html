@@ -1,10 +1,11 @@
-git<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Message Board</title>
-<style>
+ <style>
     :root{
       --bg:#0f1724; --card:#0b1220; --accent:#6ee7b7; --muted:#94a3b8; --glass: rgba(255,255,255,0.04);
       --radius:12px; --maxw:900px;
@@ -108,23 +109,8 @@ git<!DOCTYPE html>
     // new: store uploaded image data URL while composing
     let composingImageData = null;
 
-    // Redirect to login if not authenticated
-    (function ensureAuth(){
-      const user = localStorage.getItem(CURR_KEY);
-      if(!user){
-        window.location.href = 'login.html';
-      } else {
-        document.addEventListener('DOMContentLoaded', ()=> {
-          const disp = document.getElementById('userDisplay');
-          if(disp) disp.textContent = user;
-        });
-      }
-    })();
+    // Redirect to login if not authenticate
 
-    document.getElementById('logoutBtn').addEventListener('click', ()=>{
-      localStorage.removeItem(CURR_KEY);
-      window.location.href = 'login.html';
-    });
 
     function uid(){return Date.now().toString(36) + Math.floor(Math.random()*10000).toString(36)}
 
@@ -338,4 +324,3 @@ git<!DOCTYPE html>
   </script>
 </body>
 </html>
-
